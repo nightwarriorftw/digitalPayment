@@ -1,0 +1,17 @@
+{% block content %}
+
+<form action="{% url 'Stripe:stripeCharge' %}" method="POST">
+    {% csrf_token %}
+    <input type="number" id="amount" name="amount"/>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{ key }}"
+    data-description="A Django Charge"
+    data-amount=document.getElementById('amount')
+    data-locale="auto">
+</script>
+
+</form>
+
+
+
+{% endblock %}
